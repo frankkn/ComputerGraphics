@@ -1,0 +1,19 @@
+﻿  glad.c
+  textfile.cpp
+d:\courses\computer graphics\2020 spring - computer graphics\assignment\as01_framework\hw1_vs2017_framework\openglframework-vs2017\textfile.cpp(23): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  main.cpp
+d:\courses\computer graphics\2020 spring - computer graphics\assignment\as01_framework\hw1_vs2017_framework\openglframework-vs2017\main.cpp(233): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+d:\courses\computer graphics\2020 spring - computer graphics\assignment\as01_framework\hw1_vs2017_framework\openglframework-vs2017\main.cpp(233): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+d:\courses\computer graphics\2020 spring - computer graphics\assignment\as01_framework\hw1_vs2017_framework\openglframework-vs2017\main.cpp(240): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+d:\courses\computer graphics\2020 spring - computer graphics\assignment\as01_framework\hw1_vs2017_framework\openglframework-vs2017\main.cpp(240): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+d:\courses\computer graphics\2020 spring - computer graphics\assignment\as01_framework\hw1_vs2017_framework\openglframework-vs2017\main.cpp(519): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+d:\courses\computer graphics\2020 spring - computer graphics\assignment\as01_framework\hw1_vs2017_framework\openglframework-vs2017\main.cpp(507): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'unsigned __int64'
+  d:\courses\computer graphics\2020 spring - computer graphics\assignment\as01_framework\hw1_vs2017_framework\openglframework-vs2017\main.cpp(507): note: consider using '%zd' in the format string
+d:\courses\computer graphics\2020 spring - computer graphics\assignment\as01_framework\hw1_vs2017_framework\openglframework-vs2017\main.cpp(507): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 2 has type 'unsigned __int64'
+  d:\courses\computer graphics\2020 spring - computer graphics\assignment\as01_framework\hw1_vs2017_framework\openglframework-vs2017\main.cpp(507): note: consider using '%zd' in the format string
+d:\courses\computer graphics\2020 spring - computer graphics\assignment\as01_framework\hw1_vs2017_framework\openglframework-vs2017\main.cpp(544): warning C4305: '=': truncation from 'double' to 'GLfloat'
+d:\courses\computer graphics\2020 spring - computer graphics\assignment\as01_framework\hw1_vs2017_framework\openglframework-vs2017\main.cpp(564): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+  Generating Code...
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  OpenGLFramework-VS2017.vcxproj -> D:\Courses\Computer Graphics\2020 Spring - Computer Graphics\Assignment\AS01_Framework\HW1_VS2017_Framework\x64\Debug\OpenGLFramework-VS2017.exe
+  OpenGLFramework-VS2017.vcxproj -> D:\Courses\Computer Graphics\2020 Spring - Computer Graphics\Assignment\AS01_Framework\HW1_VS2017_Framework\x64\Debug\OpenGLFramework-VS2017.pdb (Partial PDB)
