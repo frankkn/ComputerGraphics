@@ -8,7 +8,7 @@
 4. Switch between 5 models
 5. Switch between solid and wireframe mode
 
-### Guide
+## Guide
 
 1. W: switch between solid and wireframe mode
 2. Z/X: switch the model
