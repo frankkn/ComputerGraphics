@@ -267,22 +267,10 @@ void ChangeSize(GLFWwindow* window, int width, int height)
 {
 	glViewport(0, 0, width, height);
 	// [TODO] change your aspect ratio
-	proj.aspect = (float)width / height;
-	setViewingMatrix();
+	proj.aspect = (float)width / (float)height;
 
-	//Orthogonal view
-	if (cur_proj_mode == Orthogonal) {
-		if (width > height) {
-			setOrthogonal();
-			project_matrix *= scaling(Vector3(1 / proj.aspect, 1, 1));
-		}
-		else {
-			setOrthogonal();
-			project_matrix *= scaling(Vector3(1, proj.aspect, 1));
-		}
-	}
-	//Perspective view
-	else {
+	//Perspective view(人眼視角需要aspect)
+	if (cur_proj_mode == Perspective) {
 		setPerspective();
 	}
 }
@@ -332,6 +320,8 @@ void drawPlane()
 
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
+
+	//Draw Array
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	glUniformMatrix4fv(iLocMVP, 1, GL_FALSE, mvp);
 	glDrawArrays(GL_TRIANGLES, 0, tmp_shape.vertex_count);
