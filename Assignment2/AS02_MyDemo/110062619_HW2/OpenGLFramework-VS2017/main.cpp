@@ -1058,10 +1058,6 @@ int main(int argc, char **argv)
 	}
 	glfwMakeContextCurrent(window);
 
-	// set window size in pixel
-	//glfwGetFramebufferSize(window, &WINDOW_WIDTH, &WINDOW_HEIGHT);
-
-
 	// load OpenGL function pointer
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 	{
