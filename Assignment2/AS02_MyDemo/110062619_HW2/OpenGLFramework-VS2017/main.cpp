@@ -416,7 +416,7 @@ void RenderScene(void) {
 		glDrawArrays(GL_TRIANGLES, 0, models[cur_idx].shapes[i].vertex_count);
 
 		// Pixel lighting at RHS
-		glViewport((GLsizei)(WINDOW_WIDTH / 2), 0, (GLsizei)(WINDOW_HEIGHT / 2), WINDOW_HEIGHT);
+		glViewport((GLsizei)(WINDOW_WIDTH / 2), 0, (GLsizei)(WINDOW_WIDTH / 2), WINDOW_HEIGHT);
 		glBindVertexArray(models[cur_idx].shapes[i].vao);
 		glUniform1i(iLocVertex_or_perpixel, 1);
 		glDrawArrays(GL_TRIANGLES, 0, models[cur_idx].shapes[i].vertex_count);
