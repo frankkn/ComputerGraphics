@@ -994,7 +994,7 @@ void initParameter()
 	lightInfo[2].specular = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
 	lightInfo[2].spotDirection = Vector4(0.0f, 0.0f, -1.0f, 0.0f);
 	lightInfo[2].spotExponent = 50;
-	lightInfo[2].spotCutoff = 0.5;
+	lightInfo[2].spotCutoff = 30 * PI / 180.0;
 	lightInfo[2].constantAttenuation = 0.5;
 	lightInfo[2].linearAttenuation = 0.3;
 	lightInfo[2].quadraticAttenuation = 0.6f;
