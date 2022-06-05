@@ -20,8 +20,8 @@
 using namespace std;
 
 // Default window size
-const int WINDOW_WIDTH = 800;
-const int WINDOW_HEIGHT = 800;
+int WINDOW_WIDTH = 800;
+int WINDOW_HEIGHT = 800;
 
 // Basic unit for angle degree
 const float PI = 3.14;
@@ -56,7 +56,6 @@ GLuint iLocMV; // view_matrix * T * R * S;
 GLuint iLocNormTrans; // MV.invert().transpose()
 
 GLuint iLocLightIdx;
-GLuint iLocLightIdxv;
 
 // material properties
 GLuint iLocKa;
@@ -159,10 +158,7 @@ struct project_setting
 project_setting proj;
 
 int cur_idx = 0; // represent which model should be rendered now
-
-//int vertex_or_perpixel = 0;
-int light_idx = 1;
-int light_idxv = 0;
+int light_idx = 0;
 
 Matrix4 view_matrix;
 Matrix4 project_matrix;
@@ -325,8 +321,9 @@ void ChangeSize(GLFWwindow* window, int width, int height)
 	glViewport(0, 0, width, height);
 	// [TODO] change your aspect ratio
 	proj.aspect = (float)width / (float)height;
-
-	//Perspective view
+	WINDOW_HEIGHT = height;
+	WINDOW_WIDTH = width;
+	setViewingMatrix();
 	if (cur_proj_mode == Perspective) {
 		setPerspective();
 	}
@@ -372,7 +369,6 @@ void setUniforms() {
 
 	// pass light index
 	glUniform1i(iLocLightIdx, light_idx);
-	glUniform1i(iLocLightIdxv, light_idxv);
 
 	for (int i = 0; i < 3; ++i) {
 		// direct, point, spot light
@@ -501,10 +497,9 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 		case LightEdit:
 			if (light_idx == 2) { // spotlight mode 
 				lightInfo[2].spotCutoff += yoffset * cutoff_changing_factor * PI / 180.0;
-			}
-			else if(light_idx == 1) {
+			}else if (light_idx == 1) {
 				lightInfo[1].diffuse += Vector4(yoffset * diffuse_changing_factor, yoffset * diffuse_changing_factor, yoffset * diffuse_changing_factor, yoffset * diffuse_changing_factor);
-			}else if(light_idx == 0) {
+			}else if (light_idx == 0) {
 				lightInfo[0].diffuse += Vector4(yoffset * diffuse_changing_factor, yoffset * diffuse_changing_factor, yoffset * diffuse_changing_factor, yoffset * diffuse_changing_factor);
 			}
 			break;
@@ -584,7 +579,6 @@ void setUniformVariables(GLint program) {
 	iLocNormTrans = glGetUniformLocation(program, "normTrans");
 
 	iLocLightIdx = glGetUniformLocation(program, "lightIdx");
-	iLocLightIdxv = glGetUniformLocation(program, "lightIdxv");
 
 	iLocKa = glGetUniformLocation(program, "material.Ka");
 	iLocKd = glGetUniformLocation(program, "material.Kd");
