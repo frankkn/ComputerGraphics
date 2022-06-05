@@ -1,2 +1,2 @@
-#TargetFrameworkVersion=v4.0:PlatformToolSet=v140:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=8.1
-Debug|x64|D:\Courses\Computer Graphics\2020 Spring - Computer Graphics\Assignment\AS01_Framework\HW1_VS2017_Framework\|
+#TargetFrameworkVersion=v4.0:PlatformToolSet=v141:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=10.0.17763.0
+Debug|x64|C:\Users\User\Desktop\Computer Graphics\Assignment1\AS01_Framework\HW1_VS2017_Framework\|
