@@ -59,10 +59,7 @@ vec4 directionalLight(){
     vec3 halfway_vector = normalize( light_vector + view_vector );
     
     // calculate ambient
-    vec3 ambient;
-	ambient[0] = (light[1].La[0] * material.Ka[0]); 
-    ambient[1] = (light[1].La[1] * material.Ka[1]);
-	ambient[2] = (light[1].La[2] * material.Ka[2]);
+	vec3 ambient = (light[0].La * material.Ka).xyz;
 
     // calculate diffuse
     float diffuse_rate = max( dot(light_vector, vertex_normal), 0 );
@@ -88,11 +85,6 @@ vec4 pointLight() {
     
     // calculate ambient
     vec3 ambient = (light[1].La * material.Ka).xyz;
-	/*
-	ambient[0] = (light[1].La[0] * material.Ka[0]); 
-    ambient[1] = (light[1].La[1] * material.Ka[1]);
-	ambient[2] = (light[1].La[2] * material.Ka[2]);
-	*/
 
     // calculate diffuse
     float diffuse_rate = max( dot(light_vector, vertex_normal), 0 );
@@ -123,10 +115,7 @@ vec4 spotLight(){
     vec3 halfway_vector = normalize( light_vector + view_vector );
     
     // calculate ambient
-    vec3 ambient;
-	ambient[0] = (light[2].La[0] * material.Ka[0]); 
-    ambient[1] = (light[2].La[1] * material.Ka[1]);
-	ambient[2] = (light[2].La[2] * material.Ka[2]);
+	vec3 ambient = (light[2].La * material.Ka).xyz;
 
     // calculate diffuse
     float diffuse_rate = max( dot(light_vector, vertex_normal), 0 );
@@ -140,7 +129,6 @@ vec4 spotLight(){
     float dis = length(light_pos - vertex_position); // distance
     float attenuation =  1 / (light[2].constantAttenuation + light[2].linearAttenuation * dis + light[2].quadraticAttenuation * dis * dis);
     
-    
     // calculate spotlight effect
     float cos_vertex_direction = dot(-light_vector, light[2].spotDirection.xyz); // cosine of angle between vector from light_pos to vertex_pos and direction
 	float spotlight_effect = (cos_vertex_direction < cos(light[2].spotCutoff)) ? 0: pow( max(cos_vertex_direction, 0), light[2].spotExponent );
@@ -151,17 +139,7 @@ vec4 spotLight(){
 
 void main()
 {
-
-	//vec4 vertexInView = view_matrix  * vec4(aPos, 1.0); // [TODO] * M ?
-	//vec3 tmp = (transpose(inverse(view_matrix * model_matrix )) * vec4(aNormal,0.0)).xyz;
-	//vertex_view = vertexInView.xyz;
-	//vertex_normal = tmp;
 	vertex_normal = normalize( (normTrans * vec4(aNormal, 1.0)).xyz );
-
-	// vec3 N = normalize(tmp);
-	// vec3 N =  normalize( (normTrans * vec4(aNormal, 1.0)).xyz );
-	// vec3 V = -vertexInView.xyz; // V = vertex position in viewing space	
-
 	if(lightIdx == 0)
 	{
 		vertex_color = directionalLight();
@@ -174,8 +152,6 @@ void main()
 	{
 		vertex_color = spotLight();
 	}
-	
 	gl_Position = project_matrix * view_matrix * model_matrix * vec4(aPos, 1.0);
-		
 }
 
